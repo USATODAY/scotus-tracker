@@ -54,8 +54,9 @@ def read_wb(wb):
 def format_data():
     wb = open_file()
     wb_data = read_wb(wb)
+    data = read_sheet(wb.sheet_by_index(0))
     with open (output_json_file, 'w') as output_file:
-        json.dump(wb_data, output_file)
+        json.dump(data, output_file)
 
 if __name__ == "__main__":
     format_data()

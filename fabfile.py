@@ -30,7 +30,7 @@ def updater(target="dev"):
     # print("Uploading data...")
     try:
         print "moving data to source folder"
-        local("cp data_tools/output/data.json src/data")
+        local("cp data_tools/output/data.json src/data/")
     except:
         print "Couldn't copy new data to src folder"
         pass
