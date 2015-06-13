@@ -6,7 +6,7 @@ this["templates"]["app.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<h1>hello SCOTUS</h1>\n<div class="iapp-case-wrap"></div>\n';
+__p += '<div class="iapp-panel iapp-intro-panel">\n    <h1 class="iapp-page-header">SCOTUS Decision Tracker </h1>\n    <p class="iapp-page-chatter">Amet repellendus iusto cumque voluptas necessitatibus similique sapiente? Minus error vero quia ea fugiat deleniti. Commodi quidem voluptate fugit modi soluta quisquam. Autem in beatae laboriosam excepturi corporis officia quasi!</p>\n    <div class="iapp-button iapp-button-blue iapp-begin-button"><div class="iapp-button-text">Begin</div></div>\n</div>\n';
 
 }
 return __p
@@ -19,7 +19,7 @@ function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<div class="iapp-case-wrap">\n    <h2 class="iapp-case-name">' +
 ((__t = (case_name)) == null ? '' : __t) +
-' <span class="label label-success">Decided</span></h2>\n    <h4 class="iapp-case-question">' +
+' </h2>\n    <p class="iapp-decided-indicator"><span class="label label-success">Decided</span></p>\n    <h4 class="iapp-case-question">' +
 ((__t = (question)) == null ? '' : __t) +
 '</h4>\n    <div class="iapp-case-nav">\n        <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-next-button"><div class="iapp-button-text">Next</div></div>\n        <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-previous-button"><div class="iapp-button-text">Previous</div></div>\n    </div>\n\n    <h3 class="iapp-case-section-label">Outcome</h3>\n    <h4 class="iapp-outcome">' +
 ((__t = (outcome)) == null ? '' : __t) +
@@ -61,7 +61,7 @@ var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<div class="iapp-case-wrap">\n    <h2 class="iapp-case-name">' +
 ((__t = (case_name)) == null ? '' : __t) +
-' <span class="label label-primary">undecided</span></h2>\n    <h4 class="iapp-case-question">' +
+'</h2>\n    <p class="iapp-decided-indicator"><span class="label label-warning">Undecided</span></p>\n    <h4 class="iapp-case-question">' +
 ((__t = (question)) == null ? '' : __t) +
 '</h4>\n    <div class="iapp-case-arguments">\n        <div class="iapp-case-argument">\n            <h3 class="iapp-case-argument-title">Argument For</h3>\n            <p class="iapp-case-argument-text">' +
 ((__t = ( argument_for )) == null ? '' : __t) +

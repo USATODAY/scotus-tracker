@@ -19,6 +19,7 @@ define(
                 this.listenTo(Backbone, "app:goBack", this.goBack);
             },
             events: {
+                "click .iapp-begin-button": "begin"
             },
             onDataReady: function() {
                 this.render();
@@ -44,10 +45,12 @@ define(
                     _this.subViews.push(caseView);
                     _this.$el.append(caseView.el);
                 });
+            },
+            begin: function() {
                 this.subViews[this.currentSubView].$el.removeClass('upcoming').addClass('active');
             },
             goForward: function() {
-                
+                console.log("go forward");
                 var oldSub = this.subViews[this.currentSubView];
                 this.currentSubView++;
                 var newSub = this.subViews[this.currentSubView];
