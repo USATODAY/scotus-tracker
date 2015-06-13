@@ -13,3 +13,33 @@
     transition: background-color .5s;
   }
 }
+
+.iapp-button-text {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.iapp-button {
+  background: white;
+  border-radius: 50%;
+  @include BoxShadowHelper(4);
+  color: $blue;
+  cursor: pointer;
+  height: 80px;
+  position: relative;
+  text-transform: uppercase;
+  transition: all 250ms ease;
+  width: 80px;
+  z-index: 99;
+  &:hover {
+    @include BoxShadowHelper(5)
+  }
+}
+
+.iapp-button-blue {
+    background: $dark-blue;
+    color: white;
+}

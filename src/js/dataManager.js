@@ -2,9 +2,10 @@ define(
   [
     'jquery',
     'underscore',
-    'backbone'
+    'backbone',
+    'models/justices'
   ],
-  function(jQuery, _, Backbone) {
+  function(jQuery, _, Backbone, justices) {
 
     var hostname = window.location.hostname;
 
@@ -24,12 +25,54 @@ define(
         getData: function() {
             var _this = this;
             jQuery.getJSON(dataURL, function(data) {        
-                _this.data = data;
+                
+                //parse raw data from JSON
+                _this.data = _this.parseData(data);
 
-                // trigger the dataReady Backbone even which kicks off the app 
+                // trigger the dataReady Backbone event which kicks off the app
                 Backbone.trigger("dataReady", this);
 
             });
+        },
+        parseData: function(data) {
+            var parsedData = [];
+            _.each(data, function(caseObj) {
+                newCaseObj = caseObj;
+
+                // Split for and against names into arrays
+                newCaseObj.for = newCaseObj.for.split(", ");
+                newCaseObj.against = newCaseObj.against.split(", ");
+                newCaseObj.inPart = newCaseObj.wildcard_or_concur_in_part.split(", ");
+                var justicesObj = new justices.Justices();
+                var justiceArray = justicesObj.justices;
+
+
+                _.each(newCaseObj.for, function(forJustice) {
+                    var justiceObj = _.findWhere(justiceArray, {"last_name": forJustice});
+                    justiceObj.status = "for";
+                });
+                _.each(newCaseObj.against, function(againstJustice) {
+                    var justiceObj = _.findWhere(justiceArray, {"last_name": againstJustice});
+                    justiceObj.status = "against";
+                });
+                _.each(newCaseObj.inPart, function(inPartJustice) {
+                    if (inPartJustice !== "") {
+                        var justiceObj = _.findWhere(justiceArray, {"last_name": inPartJustice});
+                        justiceObj.status = "in-part";
+                    }
+                });
+
+                newCaseObj.justices = justiceArray;
+
+                //convert is_decided to boolean value
+                if (newCaseObj.is_decided === "") {
+                    newCaseObj.is_decided = false;
+                } else {
+                    newCaseObj.is_decided = true;
+                }
+                parsedData.push(newCaseObj);
+            });
+            return parsedData;
         }
     };
 

@@ -8,12 +8,15 @@ define(
     'router',
     'models/config',
     'collections/CaseCollection',
+    'views/CaseView',
     'templates'
   ],
-  function(jQuery, _, Backbone, dataManager, Analytics, router, config, CaseCollection, templates){
+  function(jQuery, _, Backbone, dataManager, Analytics, router, config, CaseCollection, CaseView, templates){
         return Backbone.View.extend({
             initialize: function() {
                 this.listenTo(Backbone, "dataReady", this.onDataReady);
+                this.listenTo(Backbone, "app:goForward", this.goForward);
+                this.listenTo(Backbone, "app:goBack", this.goBack);
             },
             events: {
             },
@@ -32,9 +35,16 @@ define(
             },
             template: templates["app.html"],
             subViews: [],
+            currentSubView: 0,
             addSubViews: function() {
+                var _this = this;
                 var caseCollection = new CaseCollection(dataManager.data);
-                console.log(caseCollection);
+                caseCollection.each(function(caseModel) {
+                    var caseView = new CaseView({model: caseModel});
+                    _this.subViews.push(caseView);
+                    _this.$el.append(caseView.el);
+                });
+                this.subViews[this.currentSubView].$el.removeClass('upcoming').addClass('active');
             },
             goForward: function() {
                 

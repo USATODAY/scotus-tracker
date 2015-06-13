@@ -1,0 +1,35 @@
+<div class="iapp-case-wrap">
+    <h2 class="iapp-case-name"><%=case_name%> <span class="label label-success">Decided</span></h2>
+    <h4 class="iapp-case-question"><%=question%></h4>
+    <div class="iapp-case-nav">
+        <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-next-button"><div class="iapp-button-text">Next</div></div>
+        <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-previous-button"><div class="iapp-button-text">Previous</div></div>
+    </div>
+
+    <h3 class="iapp-case-section-label">Outcome</h3>
+    <h4 class="iapp-outcome"><%=outcome%></h4>
+    <h3 class="iapp-case-section-label">Decision Breakdown:</h3>
+    <table class="table table-bordered iapp-decision-table">
+        <thead>
+            <tr>
+                <td>Justice</td>
+                <td>Decision</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% _.each(justices, function(justice) { %>
+            <tr>
+                <td><%=justice.name %></td>
+                <% if(justice.status == "for") { %>
+                <td class="iapp-for">Majority</td>
+                <%} else if(justice.status == "in-part") { %>
+                <td class="iapp-in-part">Concur in part</td>
+                <%} else if(justice.status == "against") { %>
+                <td class="iapp-against">Dissent</td>
+                <%}%>
+            </tr>
+            </tr>
+            <%})%>
+        </tbody>
+    </table>
+</div>

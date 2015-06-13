@@ -1,7 +1,12 @@
-html { font-weight: normal; font-family: "Futura Today Normal", Arial,sans-serif;}
+$FUTURA-NORMAL: "Futura Today Normal", Arial, sans-serif;
+$FUTURA-LIGHT: "Futura Today Light", Arial, sans-serif;
+$FUTURA-BOLD: "Futura Today Bold", Arial, sans-serif;
+$FUTURA-DEMIBOLD: "Futura Today DemiBold", Arial, sans-serif;
+
+html { font-weight: normal; font-family: $FUTURA-NORMAL;}
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Futura Today Bold", Arial,sans-serif;
+  font-family: $FUTURA-BOLD;
 }
 
 .chatter {
@@ -20,7 +25,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .detail-header {
-  font-family: "Futura Today DemiBold", Arial,sans-serif;
+  font-family: $FUTURA-DEMIBOLD;
 }
 
 .info-text {
@@ -29,5 +34,5 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 strong {
-  font-family: "Futura Today Bold", Arial,sans-serif;
+  font-family: $FUTURA-BOLD;
 }

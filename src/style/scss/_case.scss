@@ -1,0 +1,69 @@
+.iapp-case-name {
+    font-family: $FUTURA-LIGHT;
+    text-transform: uppercase;
+}
+
+.iapp-case-question {
+    font-family: $FUTURA-NORMAL;
+    font-size: 1.2em;
+    margin: 2em auto 2em 0;
+    max-width: 35em;
+}
+
+.iapp-case-panel {
+    background: white;
+    font-family: $FUTURA-NORMAL;
+    padding: 4em 6em;
+}
+
+.iapp-case-section-label {
+    font-family: $FUTURA-LIGHT;
+}
+
+table.iapp-decision-table {
+    font-family: $FUTURA-LIGHT;
+    margin: 1em auto 1em 0;
+    max-width: 500px;
+    text-align: center;
+    width: 80%;
+}
+
+td.iapp-for {
+    background-color: transparentize($green, 0.4);
+    color: white;
+}
+
+td.iapp-in-part {
+    background-color: transparentize($blue, 0.4);
+    color: white;
+}
+
+td.iapp-against {
+    background-color: transparentize($red, 0.4);
+    color: white;
+}
+
+.iapp-case-next-button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.iapp-case-previous-button {
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.iapp-case-arguments {
+    font-family: $FUTURA-NORMAL;
+}
+
+.iapp-case-argument {
+    float: left;
+    padding-right: 1em;
+    width: 50%;
+}
+
