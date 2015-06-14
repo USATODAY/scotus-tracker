@@ -1,0 +1,20 @@
+@mixin panel() {
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transform: translate(0, 0);
+    transition: transform 500ms ease;
+    width: 100%;
+}
+
+.iapp-panel {
+    @include panel();
+    &.upcoming {
+        transform: translate(100%, 0);
+    }
+    &.done {
+        transform: translate(-100%, 0);
+    }
+}

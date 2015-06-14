@@ -30,7 +30,7 @@ def updater(target="dev"):
     # print("Uploading data...")
     try:
         print "moving data to source folder"
-        local("cp data_tools/output/data.json src/data")
+        local("cp data_tools/output/data.json src/data/")
     except:
         print "Couldn't copy new data to src folder"
         pass
@@ -39,7 +39,7 @@ def upload():
     try:
         print "uploading data to the server..."
         ftp_conn = connect_ftp()
-        ftp_conn.cwd("usatoday/2015/04/baltimore-unrest/data/")
+        ftp_conn.cwd("usatoday/2015/06/scotus-tracker/data/")
         upload_file(ftp_conn, create_absolute_path('data_tools/output/data.json'))
         print ("success!")
     except:
