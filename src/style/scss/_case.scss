@@ -1,3 +1,17 @@
+/************
+
+case styles
+
+************/
+
+
+.iapp-case-panel {
+    background: white;
+    font-family: $FUTURA-NORMAL;
+    overflow-y: auto;
+    padding: 4em 6em;
+}
+
 .iapp-case-name {
     font-family: $FUTURA-LIGHT;
     text-transform: uppercase;
@@ -10,22 +24,45 @@
     max-width: 35em;
 }
 
-.iapp-case-panel {
-    background: white;
+
+.iapp-outcome {
     font-family: $FUTURA-NORMAL;
-    padding: 4em 6em;
 }
+
+/******
+case section styles
+******/
 
 .iapp-case-section-label {
     font-family: $FUTURA-LIGHT;
 }
+
+.iapp-case-section {
+    border-bottom: solid 1px $medium-grey;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    @extend .group;
+}
+
+.iapp-case-split-column {
+    @media(min-width: 600px) {
+        float: left;
+        padding-right: 2em;
+        width: 50%;
+    }
+}
+
+
+/******
+case decision table styles
+******/
 
 table.iapp-decision-table {
     font-family: $FUTURA-LIGHT;
     margin: 1em auto 1em 0;
     max-width: 500px;
     text-align: center;
-    width: 80%;
+    width: 100%;
 }
 
 td.iapp-for {
@@ -43,6 +80,10 @@ td.iapp-against {
     color: white;
 }
 
+/******
+case nav styles
+******/
+
 .iapp-case-next-button {
     position: absolute;
     right: 0;
@@ -57,15 +98,23 @@ td.iapp-against {
     transform: translate(0, -50%);
 }
 
+/******
+case argument styles
+******/
+
 .iapp-case-arguments {
     font-family: $FUTURA-NORMAL;
 }
 
 .iapp-case-argument {
-    float: left;
-    padding-right: 1em;
-    width: 50%;
+    // float: left;
+    // padding-right: 1em;
+    // width: 50%;
 }
+
+/******
+case decided indicator styles
+******/
 
 .iapp-decided-indicator {
     font-size: 1.2em;
@@ -73,3 +122,13 @@ td.iapp-against {
 
 .label-warning { background-color: $orange; }
 .label-success { background-color: $green; }
+
+
+/******
+case quote styles
+******/
+
+.iapp-case-quote-wrap {
+    // float: left;
+    // width: 50%;
+}

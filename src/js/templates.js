@@ -19,25 +19,37 @@ function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<div class="iapp-case-wrap">\n    <h2 class="iapp-case-name">' +
 ((__t = (case_name)) == null ? '' : __t) +
-' </h2>\n    <p class="iapp-decided-indicator"><span class="label label-success">Decided</span></p>\n    <h4 class="iapp-case-question">' +
+' </h2>\n    <p class="iapp-decided-indicator"><span class="label label-success">Decided</span></p>\n\n    <div class="iapp-case-section">\n        <h4 class="iapp-case-question">' +
 ((__t = (question)) == null ? '' : __t) +
-'</h4>\n    <div class="iapp-case-nav">\n        <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-next-button"><div class="iapp-button-text">Next</div></div>\n        <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-previous-button"><div class="iapp-button-text">Previous</div></div>\n    </div>\n\n    <h3 class="iapp-case-section-label">Outcome</h3>\n    <h4 class="iapp-outcome">' +
+'</h4>\n    </div>\n\n    <div class="iapp-case-section iapp-case-arguments">\n        <div class="iapp-case-argument iapp-case-split-column">\n            <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>\n            <p class="iapp-case-argument-text">' +
+((__t = ( argument_for )) == null ? '' : __t) +
+'</p>\n        </div>\n        <div class="iapp-case-argument iapp-case-split-column">\n            <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>\n            <p class="iapp-case-argument-text">' +
+((__t = ( argument_against )) == null ? '' : __t) +
+'</p>\n        </div>\n    </div>\n\n    <div class="iapp-case-section">\n        <div class="iapp-case-split-column">\n            <h3 class="iapp-case-section-label">Outcome</h3>\n            <h4 class="iapp-outcome">' +
 ((__t = (outcome)) == null ? '' : __t) +
-'</h4>\n    <h3 class="iapp-case-section-label">Decision Breakdown:</h3>\n    <table class="table table-bordered iapp-decision-table">\n        <thead>\n            <tr>\n                <td>Justice</td>\n                <td>Decision</td>\n            </tr>\n        </thead>\n        <tbody>\n            ';
+'</h4>\n        </div>\n        <div class="iapp-case-split-column">\n            <h3 class="iapp-case-section-label">Decision Breakdown:</h3>\n            <table class="table table-bordered iapp-decision-table">\n                <thead>\n                    <tr>\n                        <td>Justice</td>\n                        <td>Decision</td>\n                    </tr>\n                </thead>\n                <tbody>\n                    ';
  _.each(justices, function(justice) { ;
-__p += '\n            <tr>\n                <td>' +
+__p += '\n                    <tr>\n                        <td>' +
 ((__t = (justice.name )) == null ? '' : __t) +
-'</td>\n                ';
+'</td>\n                        ';
  if(justice.status == "for") { ;
-__p += '\n                <td class="iapp-for">Majority</td>\n                ';
+__p += '\n                        <td class="iapp-for">Majority</td>\n                        ';
 } else if(justice.status == "in-part") { ;
-__p += '\n                <td class="iapp-in-part">Concur in part</td>\n                ';
+__p += '\n                        <td class="iapp-in-part">Concur in part</td>\n                        ';
 } else if(justice.status == "against") { ;
-__p += '\n                <td class="iapp-against">Dissent</td>\n                ';
+__p += '\n                        <td class="iapp-against">Dissent</td>\n                        ';
 };
-__p += '\n            </tr>\n            </tr>\n            ';
+__p += '\n                    </tr>\n                    ';
 });
-__p += '\n        </tbody>\n    </table>\n</div>\n';
+__p += '\n                </tbody>\n            </table>\n        </div>\n    </div>\n    <div class="iapp-case-section iapp-case-quotes">\n        <h3 class="iapp-case-section-label">Quotes from the decision</h3>\n        <div class="iapp-case-quote-wrap iapp-case-split-column">\n            <p class="iapp-case-quote">' +
+((__t = ( quote_1 )) == null ? '' : __t) +
+'</p>\n            <p class="iapp-case-quote-source">' +
+((__t = ( quote_1_source)) == null ? '' : __t) +
+'</p>\n        </div>\n        <div class="iapp-case-quote-wrap iapp-case-split-column">\n            <p class="iapp-case-quote">' +
+((__t = ( quote_2 )) == null ? '' : __t) +
+'</p>\n            <p class="iapp-case-quote-source">' +
+((__t = ( quote_2_source)) == null ? '' : __t) +
+'</p>\n        </div>\n    </div>\n    <div class="iapp-case-nav">\n        <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-next-button"><div class="iapp-button-text">Next</div></div>\n        <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-previous-button"><div class="iapp-button-text">Previous</div></div>\n    </div>\n</div>\n';
 
 }
 return __p
@@ -57,17 +69,42 @@ return __p
 
 this["templates"]["undecidedcase.html"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape;
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<div class="iapp-case-wrap">\n    <h2 class="iapp-case-name">' +
 ((__t = (case_name)) == null ? '' : __t) +
-'</h2>\n    <p class="iapp-decided-indicator"><span class="label label-warning">Undecided</span></p>\n    <h4 class="iapp-case-question">' +
+'</h2>\n    <p class="iapp-decided-indicator"><span class="label label-warning">Undecided</span></p>\n    <div class="iapp-case-section">\n        <h4 class="iapp-case-question">' +
 ((__t = (question)) == null ? '' : __t) +
-'</h4>\n    <div class="iapp-case-arguments">\n        <div class="iapp-case-argument">\n            <h3 class="iapp-case-argument-title">Argument For</h3>\n            <p class="iapp-case-argument-text">' +
+'</h4>\n    </div>\n    <div class="iapp-case-section iapp-case-arguments">\n        <div class="iapp-case-argument iapp-case-split-column">\n            <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>\n            <p class="iapp-case-argument-text">' +
 ((__t = ( argument_for )) == null ? '' : __t) +
-'</p>\n        </div>\n        <div class="iapp-case-argument">\n            <h3 class="iapp-case-argument-title">Argument Against</h3>\n            <p class="iapp-case-argument-text">' +
+'</p>\n        </div>\n        <div class="iapp-case-argument iapp-case-split-column">\n            <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>\n            <p class="iapp-case-argument-text">' +
 ((__t = ( argument_against )) == null ? '' : __t) +
-'</p>\n        </div>\n    </div>\n</div>\n<div class="iapp-case-nav">\n    <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-next-button"><div class="iapp-button-text">Next</div></div>\n    <div class="iapp-button iapp-button-blue  iapp-case-nav-button iapp-case-previous-button"><div class="iapp-button-text">Previous</div></div>\n</div>\n\n';
+'</p>\n        </div>\n    </div>\n    <div class="iapp-case-section iapp-case-quotes">\n        <h3 class="iapp-case-section-label">Quotes from the arguments</h3>\n        <div class="iapp-case-quote-wrap iapp-case-split-column">\n            <p class="iapp-case-quote">' +
+((__t = ( quote_1 )) == null ? '' : __t) +
+'</p>\n            <p class="iapp-case-quote-source">' +
+((__t = ( quote_1_source)) == null ? '' : __t) +
+'</p>\n        </div>\n        <div class="iapp-case-quote-wrap iapp-case-split-column">\n            <p class="iapp-case-quote">' +
+((__t = ( quote_2 )) == null ? '' : __t) +
+'</p>\n            <p class="iapp-case-quote-source">' +
+((__t = ( quote_2_source)) == null ? '' : __t) +
+'</p>\n        </div>\n    </div>\n    <div class="iapp-case-section">\n        <div class="iapp-case-split-column">\n            <h3 class="iapp-case-section-label">Projected Outcome</h3>\n            <h4 class="iapp-outcome">' +
+((__t = (outcome)) == null ? '' : __t) +
+'</h4>\n        </div>\n        <div class="iapp-case-split-column">\n            <h3 class="iapp-case-section-label">Projected Breakdown:</h3>\n            <table class="table table-bordered iapp-decision-table">\n                <thead>\n                    <tr>\n                        <td>Justice</td>\n                        <td>Decision</td>\n                    </tr>\n                </thead>\n                <tbody>\n                    ';
+ _.each(justices, function(justice) { ;
+__p += '\n                    <tr>\n                        <td>' +
+((__t = (justice.name )) == null ? '' : __t) +
+'</td>\n                        ';
+ if(justice.status == "for") { ;
+__p += '\n                        <td class="iapp-for">Majority</td>\n                        ';
+} else if(justice.status == "in-part") { ;
+__p += '\n                        <td class="iapp-in-part">Concur in part</td>\n                        ';
+} else if(justice.status == "against") { ;
+__p += '\n                        <td class="iapp-against">Dissent</td>\n                        ';
+};
+__p += '\n                    </tr>\n                    ';
+});
+__p += '\n                </tbody>\n            </table>\n        </div>\n</div>\n<div class="iapp-case-nav">\n    <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-next-button"><div class="iapp-button-text">Next</div></div>\n    <div class="iapp-button iapp-button-blue  iapp-case-nav-button iapp-case-previous-button"><div class="iapp-button-text">Previous</div></div>\n</div>\n\n';
 
 }
 return __p
