@@ -36,6 +36,7 @@ define(
         },
         parseData: function(data) {
             var parsedData = [];
+            var _this = this;
             _.each(data, function(caseObj) {
                 newCaseObj = caseObj;
 
@@ -45,6 +46,7 @@ define(
                 newCaseObj.inPart = newCaseObj.wildcard_or_concur_in_part.split(", ");
                 var justicesObj = new justices.Justices();
                 var justiceArray = justicesObj.justices;
+
 
 
                 _.each(newCaseObj.for, function(forJustice) {
@@ -70,9 +72,22 @@ define(
                 } else {
                     newCaseObj.is_decided = true;
                 }
+                
+                //add slug to each case
+                newCaseObj.slug = _this.slugify(newCaseObj.case_name);
+
+
                 parsedData.push(newCaseObj);
             });
             return parsedData;
+        },
+        slugify: function(text) {
+            return text.toString().toLowerCase()
+                .replace(/\s+/g, '-')           // Replace spaces with -
+                .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+                .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+                .replace(/^-+/, '')             // Trim - from start of text
+                .replace(/-+$/, '');            // Trim - from end of text
         }
     };
 

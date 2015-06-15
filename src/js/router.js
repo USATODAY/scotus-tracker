@@ -9,7 +9,7 @@ define([
             routes: {
                 "": "home",
                 
-                "video/:clip_name":                 "highlight",    // #/1
+                "case/:case_name":                 "highlight",    // #/1
 
             },
 
@@ -18,7 +18,7 @@ define([
             },
 
             highlight: function(clip_name) {
-                Backbone.trigger("router:video", clip_name);
+                Backbone.trigger("router:case", clip_name);
             }
 
         });

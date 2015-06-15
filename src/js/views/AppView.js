@@ -39,7 +39,13 @@ define(
             currentSubView: 0,
             addSubViews: function() {
                 var _this = this;
+
+                //create new case collection from data returned from the dataManager
                 var caseCollection = new CaseCollection(dataManager.data);
+
+                //loop through each model in the case collection and create a case view for it. 
+                //Then add the case view to the subview array.
+                //Then append the case view html to the document.
                 caseCollection.each(function(caseModel) {
                     var caseView = new CaseView({model: caseModel});
                     _this.subViews.push(caseView);
@@ -47,13 +53,26 @@ define(
                 });
             },
             begin: function() {
+                //launches the app into the first case from the intro
                 this.subViews[this.currentSubView].$el.removeClass('upcoming').addClass('active');
+                
+                //update url to match new case model
+                var caseModel = this.subViews[this.currentSubView].model;
+                var slug = caseModel.get("slug");
+                router.navigate("case/" + slug);
             },
             goForward: function() {
-                console.log("go forward");
+                //move forward one sub view
+
                 var oldSub = this.subViews[this.currentSubView];
                 this.currentSubView++;
                 var newSub = this.subViews[this.currentSubView];
+
+                //update url to match new case model
+                //
+                var caseModel = newSub.model;
+                var slug = caseModel.get("slug");
+                router.navigate("case/" + slug);
 
                 oldSub.$el.removeClass('active').addClass('done');
                 newSub.$el.removeClass('upcoming').addClass('active');
@@ -62,6 +81,12 @@ define(
                 var oldSub = this.subViews[this.currentSubView];
                 this.currentSubView--;
                 var newSub = this.subViews[this.currentSubView];
+
+                //update url to match new case model
+                //
+                var caseModel = newSub.model;
+                var slug = caseModel.get("slug");
+                router.navigate("case/" + slug);
 
                 oldSub.$el.removeClass('active').addClass('upcoming');
                 newSub.$el.removeClass('done').addClass('active');
