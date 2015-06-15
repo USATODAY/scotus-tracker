@@ -17,8 +17,8 @@ define([
                 Backbone.trigger("homeRoute");
             },
 
-            highlight: function(clip_name) {
-                Backbone.trigger("router:case", clip_name);
+            highlight: function(caseSlug) {
+                Backbone.trigger("router:case", caseSlug);
             }
 
         });
