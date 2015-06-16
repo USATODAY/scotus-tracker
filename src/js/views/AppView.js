@@ -25,6 +25,7 @@ define(
             onDataReady: function() {
                 this.render();
                 Backbone.history.start();
+                this.maxSubViews = dataManager.data.cases.length;
                 _.delay(function() {
                     this.$('.iapp-preloader').fadeOut(250);
                 }, 1000);
@@ -38,6 +39,7 @@ define(
             template: templates["app.html"],
             subViews: [],
             currentSubView: 0,
+            maxSubViews: 0,
             addSubViews: function() {
                 var _this = this;
 
@@ -79,6 +81,9 @@ define(
 
                 oldSub.$el.removeClass('active').addClass('done');
                 newSub.$el.removeClass('upcoming').addClass('active');
+                if (this.currentSubView >= this.maxSubViews - 1) {
+                    newSub.$(".iapp-case-next-button").hide();
+                }
             },
             goBack: function() {
                 var oldSub = this.subViews[this.currentSubView];
@@ -131,6 +136,9 @@ define(
                     });
                 }
                 newSub.$el.removeClass('done').removeClass('upcoming').addClass('active');
+                if (this.currentSubView >= this.maxSubViews - 1) {
+                    newSub.$(".iapp-case-next-button").hide();
+                }
             },
             getURL: function() {
                  return 'http://' + window.location.hostname + window.location.pathname;
