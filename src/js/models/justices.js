@@ -5,6 +5,10 @@ define([
         Justices: function(){
             this.justices = [
                 {
+                    "name": "John G. Roberts",
+                    "last_name": "Roberts"
+                },
+                {
                     "name": "Antonin Scalia",
                     "last_name": "Scalia"
                 },
@@ -23,10 +27,6 @@ define([
                 {
                     "name": "Stephen Breyer",
                     "last_name": "Breyer"
-                },
-                {
-                    "name": "John G. Roberts",
-                    "last_name": "Roberts"
                 },
                 {
                     "name": "Samuel Alito",

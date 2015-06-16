@@ -21,6 +21,7 @@ define(
     return {
         isMobile: isMobile,
         fb_app_id: fb_app_id,
-        staticInfo: staticInfo
+        staticInfo: staticInfo,
+        shareImage: 'http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/fb-post.jpg',
     };
 });

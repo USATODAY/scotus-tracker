@@ -31,7 +31,7 @@ define(
                 
             },
             render: function() {
-                this.$el.append(this.template());
+                this.$el.append(this.template({head: dataManager.data.head, chatter: dataManager.data.chatter}));
                 this.addSubViews();
                 return this;
             },
@@ -42,7 +42,9 @@ define(
                 var _this = this;
 
                 //create new case collection from data returned from the dataManager
-                var caseCollection = new CaseCollection(dataManager.data);
+                var caseCollection = new CaseCollection(dataManager.data.cases);
+
+                console.log(caseCollection);
 
                 //loop through each model in the case collection and create a case view for it. 
                 //Then add the case view to the subview array.
