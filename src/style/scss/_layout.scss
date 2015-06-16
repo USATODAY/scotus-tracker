@@ -18,3 +18,14 @@
         transform: translate(-100%, 0);
     }
 }
+
+.iapp-wrap {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+article {
+    height: 100%;
+    position: relative;
+}

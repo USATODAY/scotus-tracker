@@ -1,0 +1,62 @@
+.iapp-share-wrap {
+    background-color: white;
+    border-radius: 10px;
+    @include BoxShadowHelper(3);
+    left: 50%;
+    max-width: 400px;
+    padding: 2em;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+
+    .iapp-emoji-image-wrap {
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+    }
+}
+
+.iapp-page-share-wrap {
+    .iapp-share-buttons {
+        // margin: 2em auto 0 0;
+    }
+}
+
+.iapp-share-close {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    width: 40px;
+    img {
+        max-width: 100%;
+    }
+}
+
+.iapp-share-button {
+    display: inline-block;
+    margin: 1em auto 0 auto;
+    width: 60px;
+    img {
+        display: block;
+    }
+}
+
+.iapp-share-preview {
+    font-family: "Futura Today Light", Arial,sans-serif;
+    text-align: center;
+}
+
+.iapp-share-buttons {
+    margin: 2em auto 0 0;
+    width: 200px;
+}
+
+@media(max-width: 600px) {
+    .iapp-share-button {
+        margin-top: 0.5em;
+    }
+    .iapp-share-buttons {
+        margin-top: 1em;
+    }
+}

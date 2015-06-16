@@ -16,7 +16,7 @@ define(
     } else {
 
 
-        dataURL = "http://" + hostname + "/services/webproxy/?url=http://www.gannett-cdn.com/experiments/usatoday/2015/04/gay-marriage/data/data.json";
+        dataURL = "http://" + hostname + "/services/webproxy/?url=http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/data/data.json";
 
     }
 
@@ -27,7 +27,7 @@ define(
             jQuery.getJSON(dataURL, function(data) {        
                 
                 //parse raw data from JSON
-                _this.data = _this.parseData(data);
+                _this.data = _this.parseData(data[0]);
 
                 // trigger the dataReady Backbone event which kicks off the app
                 Backbone.trigger("dataReady", this);
@@ -35,8 +35,9 @@ define(
             });
         },
         parseData: function(data) {
-            var parsedData = [];
-            _.each(data, function(caseObj) {
+            var parsedCases = [];
+            var _this = this;
+            _.each(data.cases, function(caseObj) {
                 newCaseObj = caseObj;
 
                 // Split for and against names into arrays
@@ -45,6 +46,11 @@ define(
                 newCaseObj.inPart = newCaseObj.wildcard_or_concur_in_part.split(", ");
                 var justicesObj = new justices.Justices();
                 var justiceArray = justicesObj.justices;
+
+                // Add default share language from data to each case
+
+                newCaseObj.default_share_language = data.share_language;
+
 
 
                 _.each(newCaseObj.for, function(forJustice) {
@@ -70,9 +76,23 @@ define(
                 } else {
                     newCaseObj.is_decided = true;
                 }
-                parsedData.push(newCaseObj);
+                
+                //add slug to each case
+                newCaseObj.slug = _this.slugify(newCaseObj.case_name);
+
+
+                parsedCases.push(newCaseObj);
             });
-            return parsedData;
+            data.cases = parsedCases;
+            return data;
+        },
+        slugify: function(text) {
+            return text.toString().toLowerCase()
+                .replace(/\s+/g, '-')           // Replace spaces with -
+                .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+                .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+                .replace(/^-+/, '')             // Trim - from start of text
+                .replace(/-+$/, '');            // Trim - from end of text
         }
     };
 

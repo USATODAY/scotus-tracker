@@ -1,15 +1,68 @@
 <div class="iapp-case-wrap">
-    <h2 class="iapp-case-name"><%=case_name%></h2>
-    <p class="iapp-decided-indicator"><span class="label label-warning">Undecided</span></p>
-    <h4 class="iapp-case-question"><%=question%></h4>
-    <div class="iapp-case-arguments">
-        <div class="iapp-case-argument">
-            <h3 class="iapp-case-argument-title">Argument For</h3>
-            <p class="iapp-case-argument-text"><%= argument_for %></p>
+    <h2 class="iapp-case-name"><%=case_title%></h2>
+    <p class="iapp-decided-indicator"><%=case_name%> <span class="label label-warning">Undecided</span> Argued: <%=case_date%></p>
+    <div class="iapp-share-buttons">
+        <a href="https://twitter.com/intent/tweet?url=<%=twitterShare%>&text=<%=encodedShare%>" class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/emoji-index/img/twitter.svg" alt="Twitter share"></a>
+        <a href="https://www.facebook.com/dialog/feed?display=popup&app_id=<%=fb_id%>&link=<%=fbShare%>&picture=<%=shareImage%>&name=&description=<%=encodedShare%>&redirect_uri=<%=fb_redirect%>" class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/emoji-index/img/fb.svg" alt="Facebook share"></a>
+    </div>
+    <div class="iapp-case-split-column">
+        <div class="iapp-case-section">
+            <h3 class="iapp-case-section-label">Question</h3>
+            <h4 class="iapp-case-question"><%=question%></h4>
         </div>
-        <div class="iapp-case-argument">
-            <h3 class="iapp-case-argument-title">Argument Against</h3>
-            <p class="iapp-case-argument-text"><%= argument_against %></p>
+        
+        <div class="iapp-case-section">
+            <h3 class="iapp-case-section-label">Projected Outcome</h3>
+            <h4 class="iapp-outcome"><%=outcome%></h4>
+        </div>
+    </div>
+    <div class="iapp-case-split-column">
+        <h3 class="iapp-case-section-label">Breakdown:</h3>
+        <table class="table table-bordered iapp-decision-table">
+            <thead>
+                <tr>
+                    <td>Justice</td>
+                    <td>Decision</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% _.each(justices, function(justice) { %>
+                <tr>
+                    <td><%=justice.name %></td>
+                    <% if(justice.status == "for") { %>
+                    <td class="iapp-undecided">?</td>
+                    <%} else if(justice.status == "in-part") { %>
+                    <td class="iapp-undecided">?</td>
+                    <%} else if(justice.status == "against") { %>
+                    <td class="iapp-undecided">?</td>
+                    <%}%>
+                </tr>
+                <%})%>
+            </tbody>
+        </table>
+    </div>
+
+    
+    <div class="iapp-case-section iapp-case-quotes">
+        <h3 class="iapp-case-section-label">Quotes from the arguments</h3>
+        <div class="iapp-case-quote-wrap iapp-case-split-column">
+            <p class="iapp-case-quote"><%= quote_1 %></p>
+            <p class="iapp-case-quote-source"><%= quote_1_source%></p>
+        </div>
+        <div class="iapp-case-quote-wrap iapp-case-split-column">
+            <p class="iapp-case-quote"><%= quote_2 %></p>
+            <p class="iapp-case-quote-source"><%= quote_2_source%></p>
+        </div>
+    </div>
+    <div class="iapp-case-section iapp-case-arguments">
+            <div class="iapp-case-argument iapp-case-split-column">
+                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>
+                <p class="iapp-case-argument-text"><%= argument_for %></p>
+            </div>
+            <div class="iapp-case-argument iapp-case-split-column">
+                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>
+                <p class="iapp-case-argument-text"><%= argument_against %></p>
+            </div>
         </div>
     </div>
 </div>
