@@ -1,8 +1,18 @@
 .iapp-intro-panel {
-    font-family: $FUTURA-NORMAL;
-    padding: 4em 6em;
+  font-family: $FUTURA-NORMAL;
+  text-align: center;
+  width: 100%;
 }
 
 .iapp-begin-button {
-    margin: 0 auto;
+  margin: 0 auto;
+}
+.intro-box {
+  background: rgba(33, 63, 153, 0.67);
+  min-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 382px;
+  padding: 4em 3em;
+  width: 27%;
 }

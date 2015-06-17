@@ -1,7 +1,7 @@
 @mixin panel() {
     height: 100%;
     left: 0;
-    overflow: hidden;
+    overflow-y: auto;
     position: absolute;
     top: 0;
     transform: translate(0, 0);

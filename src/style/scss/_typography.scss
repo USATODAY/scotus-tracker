@@ -38,8 +38,19 @@ strong {
 }
 
 h1.iapp-page-header {
-    color: $dark-grey;
+    color: #fff;
     font: 400 2em/1em $FUTURA-LIGHT;
     margin: 1em 0;
     padding: 0;
+}
+.big-head {
+  color: #fff;
+  font-size: 3em;
+}
+.small-head {
+  font-size: 2em;
+  line-height: 1em;
+}
+.iapp-page-chatter {
+  color: #fff;
 }

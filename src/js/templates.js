@@ -6,11 +6,11 @@ this["templates"]["app.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-panel iapp-intro-panel">\n    <h1 class="iapp-page-header">' +
+__p += '<div class="iapp-panel iapp-intro-panel">\n    <div class="intro-box">\n        <div class="logo"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/logo.svg" width="42%"/></div>\n        <h1 class="iapp-page-header">' +
 ((__t = (head)) == null ? '' : __t) +
-'</h1>\n    <p class="iapp-page-chatter">' +
+'</h1>\n\n        <p class="iapp-page-chatter">' +
 ((__t = (chatter)) == null ? '' : __t) +
-'</p>\n    <div class="iapp-button iapp-button-blue iapp-begin-button"><div class="iapp-button-text">Begin</div></div>\n</div>\n';
+'</p>\n\n        <div class="iapp-button iapp-button-blue iapp-begin-button">\n            <div class="iapp-button-text">Begin</div>\n        </div>\n    </div>\n</div>\n';
 
 }
 return __p

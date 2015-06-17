@@ -34,6 +34,9 @@
   width: 100%;
   @extend .group;
 }
+.logo {
+  text-align: center;
+}
 
 .chart-label {
   display: inline-block;
