@@ -10,7 +10,8 @@
 }
 
 .iapp-panel {
-    @include panel();
+  color: #fff;
+  @include panel();
     &.upcoming {
         transform: translate(100%, 0);
     }

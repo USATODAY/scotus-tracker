@@ -5,14 +5,19 @@
 }
 
 .iapp-begin-button {
+  height: 80px;
   margin: 0 auto;
+  width: 80px;
 }
 .intro-box {
   background: rgba(33, 63, 153, 0.67);
   min-height: 100%;
   margin-left: auto;
   margin-right: auto;
-  min-width: 382px;
+  min-width: 320px;
   padding: 4em 3em;
   width: 27%;
+}
+.iapp-intro-panel.hide {
+  visibility: hidden;
 }

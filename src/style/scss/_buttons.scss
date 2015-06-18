@@ -28,11 +28,11 @@
   /*@include BoxShadowHelper(4); */
   color: $blue;
   cursor: pointer;
-  height: 80px;
+  height: 40px;
   position: relative;
   text-transform: uppercase;
   transition: all 250ms ease;
-  width: 80px;
+  width: 40px;
   z-index: 99;
   &:hover {
     @include BoxShadowHelper(5)
@@ -40,6 +40,6 @@
 }
 
 .iapp-button-blue {
-    background: rgba(255,255,255,0.44);
+    background: rgba(33, 63, 153,0.90);
     color: white;
 }

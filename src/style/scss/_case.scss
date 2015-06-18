@@ -4,29 +4,34 @@ case styles
 
 ************/
 
-
 .iapp-case-panel {
-    background: white;
-    font-family: $FUTURA-NORMAL;
-    overflow-y: auto;
-    padding: 4em 6em;
+  /*background: white;*/
+  font-family: $FUTURA-NORMAL;
+  overflow-y: auto;
+  padding: 4em 6em;
+}
+
+article.vert .iapp-case-panel {
+  padding: 3em 4em;
 }
 
 .iapp-case-name {
-    font-family: $FUTURA-LIGHT;
-    text-transform: uppercase;
+  display: inline;
+  font-family: $FUTURA-LIGHT;
+  font-size: 1.7em;
+  text-transform: uppercase;
+
 }
 
 .iapp-case-question {
-    font-family: $FUTURA-NORMAL;
-    font-size: 1.2em;
-    margin: 2em auto 2em 0;
-    max-width: 35em;
+  font-family: $FUTURA-NORMAL;
+  font-size: 1.2em;
+  margin: 2em auto 2em 0;
+  max-width: 35em;
 }
 
-
 .iapp-outcome {
-    font-family: $FUTURA-NORMAL;
+  font-family: $FUTURA-NORMAL;
 }
 
 /******
@@ -34,50 +39,53 @@ case section styles
 ******/
 
 .iapp-case-section-label {
-    font-family: $FUTURA-LIGHT;
+  background: rgba(33, 63, 153, 0.93);
+  margin-top: 1em;
+  overflow: hidden;
+  padding: 0.5em 0 0.2em 0.5em;
+  font-family: $FUTURA-LIGHT;
 }
 
 .iapp-case-section {
-    border-bottom: solid 1px $medium-grey;
-    margin-bottom: 1em;
-    padding-bottom: 1em;
-    @extend .group;
+  border-bottom: solid 1px $medium-grey;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  @extend .group;
 }
 
 .iapp-case-split-column {
-    @media(min-width: 600px) {
-        float: left;
-        padding-right: 2em;
-        width: 50%;
-    }
+  @media(min-width: 600px) {
+    float: left;
+    padding-right: 2em;
+    width: 52%;
+  }
 }
-
 
 /******
 case decision table styles
 ******/
 
 table.iapp-decision-table {
-    font-family: $FUTURA-LIGHT;
-    margin: 1em auto 1em 0;
-    max-width: 500px;
-    text-align: center;
-    width: 100%;
+  font-family: $FUTURA-LIGHT;
+  margin: 1em auto 1em 0;
+  max-width: 500px;
+  text-align: center;
+  width: 100%;
 }
 
 td.iapp-for {
-    background-color: transparentize($green, 0.4);
-    color: white;
+  background-color: transparentize($green, 0.4);
+  color: white;
 }
 
 td.iapp-in-part {
-    background-color: transparentize($blue, 0.4);
-    color: white;
+  background-color: transparentize($blue, 0.4);
+  color: white;
 }
 
 td.iapp-against {
-    background-color: transparentize($red, 0.4);
-    color: white;
+  background-color: transparentize($red, 0.4);
+  color: white;
 }
 
 /******
@@ -85,17 +93,17 @@ case nav styles
 ******/
 
 .iapp-case-next-button {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translate(0, -50%);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .iapp-case-previous-button {
-    left: 0;
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 /******
@@ -103,13 +111,13 @@ case argument styles
 ******/
 
 .iapp-case-arguments {
-    font-family: $FUTURA-NORMAL;
+  font-family: $FUTURA-NORMAL;
 }
 
 .iapp-case-argument {
-    // float: left;
-    // padding-right: 1em;
-    // width: 50%;
+  // float: left;
+  // padding-right: 1em;
+  // width: 50%;
 }
 
 /******
@@ -117,18 +125,43 @@ case decided indicator styles
 ******/
 
 .iapp-decided-indicator {
-    font-size: 1.2em;
+  float: right;
+  font-size: 1.0em;
+  position: relative;
+  top: 3px;
+}
+article.vert .iapp-decided-indicator {
+  float: none;
 }
 
-.label-warning { background-color: $orange; }
-.label-success { background-color: $green; }
+.label-warning {
+  background-color: transparentize($orange, 0.2);
+  margin-left: 1em;
+  left: 1px;
+  position: relative;
+}
 
+.label-success {
+  background-color: transparentize($green, 0.4);
+  left: 1px;
+  margin-left: 1em;
+  position: relative;
+}
+article.vert .label-warning, article.vert .label-success {
+  margin-left: 0;
+}
 
 /******
 case quote styles
 ******/
 
 .iapp-case-quote-wrap {
-    // float: left;
-    // width: 50%;
+  // float: left;
+  // width: 50%;
+}
+.case-bar-wrap {
+  background: rgba(33, 63, 153, 0.93);
+  margin-top: 1em;
+  overflow: hidden;
+  padding: 0.5em 0 0.2em 0.5em;
 }

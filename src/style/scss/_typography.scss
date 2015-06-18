@@ -46,11 +46,16 @@ h1.iapp-page-header {
 .big-head {
   color: #fff;
   font-size: 3em;
+  text-transform: uppercase;
 }
 .small-head {
   font-size: 2em;
   line-height: 1em;
+  text-transform: uppercase;
 }
 .iapp-page-chatter {
   color: #fff;
+}
+.small-head.center {
+  text-align: center;
 }

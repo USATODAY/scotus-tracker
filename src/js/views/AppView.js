@@ -18,9 +18,12 @@ define(
                 this.listenTo(Backbone, "app:goForward", this.goForward);
                 this.listenTo(Backbone, "app:goBack", this.goBack);
                 this.listenTo(Backbone, 'router:case', this.goToCase);
+                jQuery(window).on('resize.app', this.onSizeChange);
+                jQuery(window).on('load.app', this.onSizeChange);
             },
             events: {
-                "click .iapp-begin-button": "begin"
+                "click .iapp-begin-button": "begin",
+                'orientationchange' : 'onSizeChange'
             },
             onDataReady: function() {
                 this.render();
@@ -57,8 +60,18 @@ define(
                     _this.$el.append(caseView.el);
                 });
             },
+            onSizeChange: function() {
+                if (window.innerWidth > window.innerHeight) {
+                    jQuery("article").removeClass("vert");
+                } else {
+                    jQuery("article").addClass("vert");
+                }
+            },
             begin: function() {
                 //launches the app into the first case from the intro
+
+                var introPanel = jQuery(".iapp-intro-panel");
+                introPanel.hide(500);
                 this.subViews[this.currentSubView].$el.removeClass('upcoming').addClass('active');
                 
                 //update url to match new case model
@@ -100,6 +113,8 @@ define(
                     newSub.$el.removeClass('done').addClass('active');
                 } else {
                     router.navigate("_");
+                    var introPanel = jQuery(".iapp-intro-panel");
+                    introPanel.show(500);
                 }
 
             },
@@ -114,6 +129,10 @@ define(
             goToCase: function(caseSlug) {
                 //@TODO find the relevant case and navigate to it
                 console.log(caseSlug);
+
+                var introPanel = jQuery(".iapp-intro-panel");
+                introPanel.hide(500);
+                this.maxSubViews = dataManager.data.cases.length;
 
                 //find subView whose model maches the slug provided by the router
                 var caseModel = _.find(this.subViews, function(subView) {
