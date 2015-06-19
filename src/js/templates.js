@@ -27,41 +27,59 @@ __p += '<div class="iapp-case-wrap">\n    <div class="small-head center">Scotus 
 ((__t = (case_name )) == null ? '' : __t) +
 ' <span\n                class="label label-success">Decided: ' +
 ((__t = (case_date)) == null ? '' : __t) +
-'</span>\n        </p></div>\n\n    <div class="iapp-case-split-column">\n        <div class="iapp-case-section">\n            <h3 class="iapp-case-section-label">Question</h3>\n            <h4 class="iapp-case-question">' +
+'</span>\n        </p>\n    </div>\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-section-label">Question</h3>\n                <h4 class="iapp-case-question">' +
 ((__t = (question)) == null ? '' : __t) +
-'</h4>\n        </div>\n\n\n        <div class="iapp-case-section">\n            <h3 class="iapp-case-section-label">Outcome</h3>\n            <h4 class="iapp-outcome">' +
+'</h4>\n            </div>\n        </div>\n        <div class="iapp-case-split-column right">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-section-label">Outcome</h3>\n                <h4 class="iapp-outcome">' +
 ((__t = (outcome)) == null ? '' : __t) +
-'</h4>\n        </div>\n    </div>\n\n    <div class="iapp-case-split-column">\n        <h3 class="iapp-case-section-label">Decision Breakdown:</h3>\n        <table class="table table-bordered iapp-decision-table">\n            <thead>\n            <tr>\n                <td>Justice</td>\n                <td>Decision</td>\n            </tr>\n            </thead>\n            <tbody>\n            ';
- _.each(justices, function(justice) { ;
-__p += '\n            <tr>\n                <td>' +
-((__t = (justice.name )) == null ? '' : __t) +
-'</td>\n                ';
- if(justice.status == "for") { ;
-__p += '\n                <td class="iapp-for">Majority</td>\n                ';
-} else if(justice.status == "in-part") { ;
-__p += '\n                <td class="iapp-in-part">Concur in part</td>\n                ';
-} else if(justice.status == "against") { ;
-__p += '\n                <td class="iapp-against">Dissent</td>\n                ';
+'</h4>\n            </div>\n        </div>\n    </div>\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-full-column">\n            <h3 class="iapp-case-section-label">Decision Breakdown:</h3>\n            ';
+ _.each(justices, function(justice, index) { ;
+__p += '\n            ';
+ if(index % 3 == 0) { ;
+__p += '\n            ';
+ if(index > 0) { ;
+__p += '\n            </tr>\n            </table>\n            ';
 };
-__p += '\n            </tr>\n            ';
+__p += '\n            <table class="table iapp-decision-table">\n                <tr>\n                    ';
+};
+__p += '\n                    ';
+ if(justice.status == "for") { ;
+__p += '\n                    <td class="iapp-for"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/' +
+((__t = (justice.name.substr(justice.name.lastIndexOf(" ") + 1, justice.name.length - justice.name.lastIndexOf(" ") + 1).toLowerCase() )) == null ? '' : __t) +
+'.jpg" width="100%"/>\n                        ' +
+((__t = (justice.name )) == null ? '' : __t) +
+'<br/>MAJORITY</td>\n                    ';
+} else if(justice.status == "in-part") { ;
+__p += '\n                    <td class="iapp-in-part"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/' +
+((__t = (justice.name.substr(justice.name.lastIndexOf(" ") + 1, justice.name.length - justice.name.lastIndexOf(" ") + 1).toLowerCase() )) == null ? '' : __t) +
+'.jpg" width="100%"/>\n                        ' +
+((__t = (justice.name )) == null ? '' : __t) +
+'<br/>CONCUR IN PART</td>\n                    ';
+} else if(justice.status == "against") { ;
+__p += '\n                    <td class="iapp-against"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/' +
+((__t = (justice.name.substr(justice.name.lastIndexOf(" ") + 1, justice.name.length - justice.name.lastIndexOf(" ") + 1).toLowerCase() )) == null ? '' : __t) +
+'.jpg" width="100%"/>\n                        ' +
+((__t = (justice.name )) == null ? '' : __t) +
+'<br/>DISSENT</td>\n                    ';
+};
+__p += '\n\n                    ';
 });
-__p += '\n            </tbody>\n        </table>\n    </div>\n\n    <div class="iapp-case-section iapp-case-quotes">\n        <div class="iapp-case-quote-wrap iapp-case-split-column ">\n            <h3 class="iapp-case-section-label">Quote from the Majority</h3>\n\n            <p class="iapp-case-quote">' +
+__p += '\n                </tr>\n            </table>\n\n        </div>\n    </div>\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-section-label">Quote from Majority</h3>\n\n                <h4 class="iapp-case-quote">' +
 ((__t = ( quote_1 )) == null ? '' : __t) +
-'</p>\n\n            <p class="iapp-case-quote-source">' +
+'</h4>\n\n                <h4 class="iapp-case-quote-source">' +
 ((__t = ( quote_1_source)) == null ? '' : __t) +
-'</p>\n        </div>\n        <div class="iapp-case-quote-wrap  iapp-case-split-column">\n            <h3 class="iapp-case-section-label">Quote from the dissent</h3>\n\n            <p class="iapp-case-quote">' +
+'</h4>\n            </div>\n        </div>\n        <div class="iapp-case-split-column right">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-section-label">Quote from dissent</h3>\n\n                <h4 class="iapp-case-quote">' +
 ((__t = ( quote_2 )) == null ? '' : __t) +
-'</p>\n\n            <p class="iapp-case-quote-source">' +
+'</h4>\n\n                <h4 class="iapp-case-quote-source">' +
 ((__t = ( quote_2_source)) == null ? '' : __t) +
-'</p>\n        </div>\n    </div>\n\n    <div class="iapp-case-section iapp-case-arguments">\n        <div class="iapp-case-argument iapp-case-split-column">\n            <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>\n\n            <p class="iapp-case-argument-text">' +
+'</h4>\n            </div>\n        </div>\n    </div>\n\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-argument iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>\n                <h4 class="iapp-case-argument-text">' +
 ((__t = ( argument_for )) == null ? '' : __t) +
-'</p>\n        </div>\n        <div class="iapp-case-argument iapp-case-split-column">\n            <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>\n\n            <p class="iapp-case-argument-text">' +
+'</h4>\n            </div>\n\n\n        </div>\n\n        <div class="iapp-case-argument iapp-case-split-column right">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>\n                <h4 class="iapp-case-argument-text">' +
 ((__t = ( argument_against )) == null ? '' : __t) +
-'</p>\n        </div>\n    </div>\n    <div class="iapp-share-buttons">\n        <a href="https://twitter.com/intent/tweet?url=' +
+'</h4>\n            </div>\n        </div>\n    </div>\n    <div class="iapp-row-wrapper">\n        <div class="iapp-share-buttons">\n            <a href="https://twitter.com/intent/tweet?url=' +
 ((__t = (twitterShare)) == null ? '' : __t) +
 '&text=' +
 ((__t = (encodedShare)) == null ? '' : __t) +
-'"\n           class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img\n                src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/emoji-index/img/twitter.svg"\n                alt="Twitter share"></a>\n        <a href="https://www.facebook.com/dialog/feed?display=popup&app_id=' +
+'"\n               class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img\n                    src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/twitter.svg"\n                    alt="Twitter share"></a>\n            <a href="https://www.facebook.com/dialog/feed?display=popup&app_id=' +
 ((__t = (fb_id)) == null ? '' : __t) +
 '&link=' +
 ((__t = (fbShare)) == null ? '' : __t) +
@@ -71,7 +89,7 @@ __p += '\n            </tbody>\n        </table>\n    </div>\n\n    <div class="
 ((__t = (encodedShare)) == null ? '' : __t) +
 '&redirect_uri=' +
 ((__t = (fb_redirect)) == null ? '' : __t) +
-'"\n           class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img\n                src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/emoji-index/img/fb.svg"\n                alt="Facebook share"></a>\n    </div>\n    <div class="iapp-case-nav">\n        <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-next-button">\n            <div class="iapp-button-text">Next</div>\n        </div>\n        <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-previous-button">\n            <div class="iapp-button-text">Back</div>\n        </div>\n    </div>\n</div>\n';
+'"\n               class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img\n                    src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/fb.svg"\n                    alt="Facebook share"></a>\n        </div>\n    </div>\n    <div class="iapp-case-nav">\n        <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-next-button">\n            <div class="iapp-button-text">Next</div>\n        </div>\n        <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-previous-button">\n            <div class="iapp-button-text">Back</div>\n        </div>\n    </div>\n</div>\n';
 
 }
 return __p
@@ -100,37 +118,39 @@ __p += '<div class="iapp-case-wrap">\n    <div class="small-head center">Scotus 
 ((__t = (case_name )) == null ? '' : __t) +
 ' <span\n                class="label label-warning">(Undecided) Argued: ' +
 ((__t = (case_date)) == null ? '' : __t) +
-'</span>\n        </p>\n    </div>\n    <div class="iapp-case-split-column">\n        <div class="iapp-case-section">\n            <h3 class="iapp-case-section-label">Question</h3>\n            <h4 class="iapp-case-question">' +
+'</span>\n        </p>\n    </div>\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-section-label">Question</h3>\n                <h4 class="iapp-case-question">' +
 ((__t = (question)) == null ? '' : __t) +
-'</h4>\n        </div>\n    </div>\n    <div class="iapp-case-split-column">\n         <div class="iapp-case-section">\n            <h3 class="iapp-case-section-label">Projected Outcome</h3>\n            <h4 class="iapp-outcome">' +
+'</h4>\n            </div>\n        </div>\n        <div class="iapp-case-split-column right">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-section-label">Projected Outcome</h3>\n                <h4 class="iapp-outcome">' +
 ((__t = (outcome)) == null ? '' : __t) +
-'</h4>\n        </div>\n    </div>\n        <h3 class="iapp-case-section-label">Breakdown:</h3>\n        <table class="table table-bordered iapp-decision-table">\n            <thead>\n            <tr>\n                <td>Justice</td>\n                <td>Decision</td>\n            </tr>\n            </thead>\n            <tbody>\n            ';
- _.each(justices, function(justice) { ;
-__p += '\n            <tr>\n                <td>' +
-((__t = (justice.name )) == null ? '' : __t) +
-'</td>\n                ';
- if(justice.status == "for") { ;
-__p += '\n                <td class="iapp-undecided">?</td>\n                ';
-} else if(justice.status == "in-part") { ;
-__p += '\n                <td class="iapp-undecided">?</td>\n                ';
-} else if(justice.status == "against") { ;
-__p += '\n                <td class="iapp-undecided">?</td>\n                ';
+'</h4>\n            </div>\n        </div>\n    </div>\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-full-column">\n            <h3 class="iapp-case-section-label">Decision Breakdown:</h3>\n            ';
+ _.each(justices, function(justice, index) { ;
+__p += '\n            ';
+ if(index % 3 == 0) { ;
+__p += '\n            ';
+ if(index > 0) { ;
+__p += '\n            </tr>\n            </table>\n            ';
 };
-__p += '\n            </tr>\n            ';
+__p += '\n            <table class="table iapp-decision-table">\n                <tr>\n                    ';
+};
+__p += '\n                    <td class="iapp-undecided"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/' +
+((__t = (justice.name.substr(justice.name.lastIndexOf(" ") + 1, justice.name.length - justice.name.lastIndexOf(" ") + 1).toLowerCase() )) == null ? '' : __t) +
+'.jpg" width="100%"/>\n                        ' +
+((__t = (justice.name )) == null ? '' : __t) +
+'<br/>\n                    ?</td>\n                    ';
 });
-__p += '\n            </tbody>\n        </table>\n\n\n    <div class="iapp-case-section iapp-case-quotes">\n        <h3 class="iapp-case-section-label">Quotes from the arguments</h3>\n\n        <div class="iapp-case-quote-wrap iapp-case-split-column">\n            <p class="iapp-case-quote">' +
+__p += '\n                </tr>\n            </table>\n\n        </div>\n    </div>\n\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-section-label">Quote For</h3>\n\n                <h4 class="iapp-case-quote">' +
 ((__t = ( quote_1 )) == null ? '' : __t) +
-'</p>\n\n            <p class="iapp-case-quote-source">' +
+'</h4>\n\n                <h4 class="iapp-case-quote-source">' +
 ((__t = ( quote_1_source)) == null ? '' : __t) +
-'</p>\n        </div>\n        <div class="iapp-case-quote-wrap iapp-case-split-column">\n            <p class="iapp-case-quote">' +
+'</h4>\n            </div>\n        </div>\n        <div class="iapp-case-split-column right">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-section-label">Quote Against</h3>\n\n                <h4 class="iapp-case-quote">' +
 ((__t = ( quote_2 )) == null ? '' : __t) +
-'</p>\n\n            <p class="iapp-case-quote-source">' +
+'</h4>\n\n                <h4 class="iapp-case-quote-source">' +
 ((__t = ( quote_2_source)) == null ? '' : __t) +
-'</p>\n        </div>\n    </div>\n    <div class="iapp-case-section iapp-case-arguments">\n        <div class="iapp-case-argument iapp-case-split-column">\n            <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>\n\n            <p class="iapp-case-argument-text">' +
+'</h4>\n            </div>\n        </div>\n    </div>\n\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-argument iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>\n                <h4 class="iapp-case-argument-text">' +
 ((__t = ( argument_for )) == null ? '' : __t) +
-'</p>\n        </div>\n        <div class="iapp-case-argument iapp-case-split-column">\n            <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>\n\n            <p class="iapp-case-argument-text">' +
+'</h4>\n            </div>\n\n\n        </div>\n\n        <div class="iapp-case-argument iapp-case-split-column right">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>\n                <h4 class="iapp-case-argument-text">' +
 ((__t = ( argument_against )) == null ? '' : __t) +
-'</p>\n        </div>\n    </div>\n\n    <div class="iapp-share-buttons">\n        <a href="https://twitter.com/intent/tweet?url=' +
+'</h4>\n            </div>\n        </div>\n    </div>\n\n    <div class="iapp-share-buttons">\n        <a href="https://twitter.com/intent/tweet?url=' +
 ((__t = (twitterShare)) == null ? '' : __t) +
 '&text=' +
 ((__t = (encodedShare)) == null ? '' : __t) +

@@ -29,6 +29,7 @@ define(
                 this.render();
                 Backbone.history.start();
                 this.maxSubViews = dataManager.data.cases.length;
+                this.onSizeChange();
                 _.delay(function() {
                     this.$('.iapp-preloader').fadeOut(250);
                 }, 1000);
@@ -61,11 +62,13 @@ define(
                 });
             },
             onSizeChange: function() {
+                console.log(window.innerWidth);
                 if (window.innerWidth > window.innerHeight) {
                     jQuery("article").removeClass("vert");
                 } else {
                     jQuery("article").addClass("vert");
                 }
+                jQuery(".site-header").css({"min-height": "39px"});
             },
             begin: function() {
                 //launches the app into the first case from the intro

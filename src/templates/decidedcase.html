@@ -5,85 +5,100 @@
 
         <p class="iapp-decided-indicator"><%=case_name %> <span
                 class="label label-success">Decided: <%=case_date%></span>
-        </p></div>
-
-    <div class="iapp-case-split-column">
-        <div class="iapp-case-section">
-            <h3 class="iapp-case-section-label">Question</h3>
-            <h4 class="iapp-case-question"><%=question%></h4>
+        </p>
+    </div>
+    <div class="iapp-row-wrapper">
+        <div class="iapp-case-split-column">
+            <div class="iapp-case-section">
+                <h3 class="iapp-case-section-label">Question</h3>
+                <h4 class="iapp-case-question"><%=question%></h4>
+            </div>
         </div>
-
-
-        <div class="iapp-case-section">
-            <h3 class="iapp-case-section-label">Outcome</h3>
-            <h4 class="iapp-outcome"><%=outcome%></h4>
+        <div class="iapp-case-split-column right">
+            <div class="iapp-case-section">
+                <h3 class="iapp-case-section-label">Outcome</h3>
+                <h4 class="iapp-outcome"><%=outcome%></h4>
+            </div>
         </div>
     </div>
-
-    <div class="iapp-case-split-column">
-        <h3 class="iapp-case-section-label">Decision Breakdown:</h3>
-        <table class="table table-bordered iapp-decision-table">
-            <thead>
-            <tr>
-                <td>Justice</td>
-                <td>Decision</td>
+    <div class="iapp-row-wrapper">
+        <div class="iapp-case-full-column">
+            <h3 class="iapp-case-section-label">Decision Breakdown:</h3>
+            <% _.each(justices, function(justice, index) { %>
+            <% if(index % 3 == 0) { %>
+            <% if(index > 0) { %>
             </tr>
-            </thead>
-            <tbody>
-            <% _.each(justices, function(justice) { %>
-            <tr>
-                <td><%=justice.name %></td>
-                <% if(justice.status == "for") { %>
-                <td class="iapp-for">Majority</td>
-                <%} else if(justice.status == "in-part") { %>
-                <td class="iapp-in-part">Concur in part</td>
-                <%} else if(justice.status == "against") { %>
-                <td class="iapp-against">Dissent</td>
-                <%}%>
-            </tr>
-            <%})%>
-            </tbody>
-        </table>
-    </div>
+            </table>
+            <%}%>
+            <table class="table iapp-decision-table">
+                <tr>
+                    <%}%>
+                    <% if(justice.status == "for") { %>
+                    <td class="iapp-for"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/<%=justice.name.substr(justice.name.lastIndexOf(" ") + 1, justice.name.length - justice.name.lastIndexOf(" ") + 1).toLowerCase() %>.jpg" width="100%"/>
+                        <%=justice.name %><br/>MAJORITY</td>
+                    <%} else if(justice.status == "in-part") { %>
+                    <td class="iapp-in-part"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/<%=justice.name.substr(justice.name.lastIndexOf(" ") + 1, justice.name.length - justice.name.lastIndexOf(" ") + 1).toLowerCase() %>.jpg" width="100%"/>
+                        <%=justice.name %><br/>CONCUR IN PART</td>
+                    <%} else if(justice.status == "against") { %>
+                    <td class="iapp-against"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/<%=justice.name.substr(justice.name.lastIndexOf(" ") + 1, justice.name.length - justice.name.lastIndexOf(" ") + 1).toLowerCase() %>.jpg" width="100%"/>
+                        <%=justice.name %><br/>DISSENT</td>
+                    <%}%>
 
-    <div class="iapp-case-section iapp-case-quotes">
-        <div class="iapp-case-quote-wrap iapp-case-split-column ">
-            <h3 class="iapp-case-section-label">Quote from the Majority</h3>
+                    <%})%>
+                </tr>
+            </table>
 
-            <p class="iapp-case-quote"><%= quote_1 %></p>
-
-            <p class="iapp-case-quote-source"><%= quote_1_source%></p>
-        </div>
-        <div class="iapp-case-quote-wrap  iapp-case-split-column">
-            <h3 class="iapp-case-section-label">Quote from the dissent</h3>
-
-            <p class="iapp-case-quote"><%= quote_2 %></p>
-
-            <p class="iapp-case-quote-source"><%= quote_2_source%></p>
         </div>
     </div>
+    <div class="iapp-row-wrapper">
+        <div class="iapp-case-split-column">
+            <div class="iapp-case-section">
+                <h3 class="iapp-case-section-label">Quote from Majority</h3>
 
-    <div class="iapp-case-section iapp-case-arguments">
+                <h4 class="iapp-case-quote"><%= quote_1 %></h4>
+
+                <h4 class="iapp-case-quote-source"><%= quote_1_source%></h4>
+            </div>
+        </div>
+        <div class="iapp-case-split-column right">
+            <div class="iapp-case-section">
+                <h3 class="iapp-case-section-label">Quote from dissent</h3>
+
+                <h4 class="iapp-case-quote"><%= quote_2 %></h4>
+
+                <h4 class="iapp-case-quote-source"><%= quote_2_source%></h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="iapp-row-wrapper">
         <div class="iapp-case-argument iapp-case-split-column">
-            <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>
+            <div class="iapp-case-section">
+                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>
+                <h4 class="iapp-case-argument-text"><%= argument_for %></h4>
+            </div>
 
-            <p class="iapp-case-argument-text"><%= argument_for %></p>
+
         </div>
-        <div class="iapp-case-argument iapp-case-split-column">
-            <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>
 
-            <p class="iapp-case-argument-text"><%= argument_against %></p>
+        <div class="iapp-case-argument iapp-case-split-column right">
+            <div class="iapp-case-section">
+                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>
+                <h4 class="iapp-case-argument-text"><%= argument_against %></h4>
+            </div>
         </div>
     </div>
-    <div class="iapp-share-buttons">
-        <a href="https://twitter.com/intent/tweet?url=<%=twitterShare%>&text=<%=encodedShare%>"
-           class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img
-                src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/emoji-index/img/twitter.svg"
-                alt="Twitter share"></a>
-        <a href="https://www.facebook.com/dialog/feed?display=popup&app_id=<%=fb_id%>&link=<%=fbShare%>&picture=<%=shareImage%>&name=&description=<%=encodedShare%>&redirect_uri=<%=fb_redirect%>"
-           class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img
-                src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/emoji-index/img/fb.svg"
-                alt="Facebook share"></a>
+    <div class="iapp-row-wrapper">
+        <div class="iapp-share-buttons">
+            <a href="https://twitter.com/intent/tweet?url=<%=twitterShare%>&text=<%=encodedShare%>"
+               class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img
+                    src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/twitter.svg"
+                    alt="Twitter share"></a>
+            <a href="https://www.facebook.com/dialog/feed?display=popup&app_id=<%=fb_id%>&link=<%=fbShare%>&picture=<%=shareImage%>&name=&description=<%=encodedShare%>&redirect_uri=<%=fb_redirect%>"
+               class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img
+                    src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/fb.svg"
+                    alt="Facebook share"></a>
+        </div>
     </div>
     <div class="iapp-case-nav">
         <div class="iapp-button iapp-button-blue iapp-case-nav-button iapp-case-next-button">
