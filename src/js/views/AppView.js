@@ -30,6 +30,7 @@ define(
                 Backbone.history.start();
                 this.maxSubViews = dataManager.data.cases.length;
                 this.onSizeChange();
+                jQuery(".iapp-panel").scroll(this.detectScroll);
                 _.delay(function() {
                     this.$('.iapp-preloader').fadeOut(250);
                 }, 1000);
@@ -61,14 +62,19 @@ define(
                     _this.$el.append(caseView.el);
                 });
             },
+            detectScroll: function() {
+                console.log(jQuery(".iapp-panel").scrollTop());
+            },
             onSizeChange: function() {
-                console.log(window.innerWidth);
                 if (window.innerWidth > window.innerHeight) {
                     jQuery("article").removeClass("vert");
                 } else {
                     jQuery("article").addClass("vert");
                 }
-                jQuery(".site-header").css({"min-height": "39px"});
+                var objHeader = jQuery(".site-header");
+                if (objHeader.length > 0) {
+                    objHeader.css({"min-height": "39px"});
+                }
             },
             begin: function() {
                 //launches the app into the first case from the intro

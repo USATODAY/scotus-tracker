@@ -51,3 +51,6 @@ remove top margin when we remove header
   //have to override inline style
   margin-top: 0 !important;
 }
+section.contents, div.non-article-content {
+  height: 100%;
+}

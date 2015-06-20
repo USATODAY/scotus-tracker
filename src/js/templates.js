@@ -63,7 +63,11 @@ __p += '\n                    <td class="iapp-against"><img src="http://www.gann
 };
 __p += '\n\n                    ';
 });
-__p += '\n                </tr>\n            </table>\n\n        </div>\n    </div>\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-section-label">Quote from Majority</h3>\n\n                <h4 class="iapp-case-quote">' +
+__p += '\n                </tr>\n            </table>\n\n        </div>\n    </div>\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-argument iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>\n                <h4 class="iapp-case-argument-text">' +
+((__t = ( argument_for )) == null ? '' : __t) +
+'</h4>\n            </div>\n\n\n        </div>\n\n        <div class="iapp-case-argument iapp-case-split-column right">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>\n                <h4 class="iapp-case-argument-text">' +
+((__t = ( argument_against )) == null ? '' : __t) +
+'</h4>\n            </div>\n        </div>\n    </div>\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-section-label">Quote from Majority</h3>\n\n                <h4 class="iapp-case-quote">' +
 ((__t = ( quote_1 )) == null ? '' : __t) +
 '</h4>\n\n                <h4 class="iapp-case-quote-source">' +
 ((__t = ( quote_1_source)) == null ? '' : __t) +
@@ -71,11 +75,7 @@ __p += '\n                </tr>\n            </table>\n\n        </div>\n    </d
 ((__t = ( quote_2 )) == null ? '' : __t) +
 '</h4>\n\n                <h4 class="iapp-case-quote-source">' +
 ((__t = ( quote_2_source)) == null ? '' : __t) +
-'</h4>\n            </div>\n        </div>\n    </div>\n\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-argument iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>\n                <h4 class="iapp-case-argument-text">' +
-((__t = ( argument_for )) == null ? '' : __t) +
-'</h4>\n            </div>\n\n\n        </div>\n\n        <div class="iapp-case-argument iapp-case-split-column right">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>\n                <h4 class="iapp-case-argument-text">' +
-((__t = ( argument_against )) == null ? '' : __t) +
-'</h4>\n            </div>\n        </div>\n    </div>\n    <div class="iapp-row-wrapper">\n        <div class="iapp-share-buttons">\n            <a href="https://twitter.com/intent/tweet?url=' +
+'</h4>\n            </div>\n        </div>\n    </div>\n\n    <div class="iapp-row-wrapper">\n        <div class="iapp-share-buttons">\n            <a href="https://twitter.com/intent/tweet?url=' +
 ((__t = (twitterShare)) == null ? '' : __t) +
 '&text=' +
 ((__t = (encodedShare)) == null ? '' : __t) +
@@ -138,7 +138,11 @@ __p += '\n                    <td class="iapp-undecided"><img src="http://www.ga
 ((__t = (justice.name )) == null ? '' : __t) +
 '<br/>\n                    ?</td>\n                    ';
 });
-__p += '\n                </tr>\n            </table>\n\n        </div>\n    </div>\n\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-section-label">Quote For</h3>\n\n                <h4 class="iapp-case-quote">' +
+__p += '\n                </tr>\n            </table>\n\n        </div>\n    </div>\n\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-argument iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>\n                <h4 class="iapp-case-argument-text">' +
+((__t = ( argument_for )) == null ? '' : __t) +
+'</h4>\n            </div>\n\n\n        </div>\n\n        <div class="iapp-case-argument iapp-case-split-column right">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>\n                <h4 class="iapp-case-argument-text">' +
+((__t = ( argument_against )) == null ? '' : __t) +
+'</h4>\n            </div>\n        </div>\n    </div>\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-section-label">Quote For</h3>\n\n                <h4 class="iapp-case-quote">' +
 ((__t = ( quote_1 )) == null ? '' : __t) +
 '</h4>\n\n                <h4 class="iapp-case-quote-source">' +
 ((__t = ( quote_1_source)) == null ? '' : __t) +
@@ -146,10 +150,6 @@ __p += '\n                </tr>\n            </table>\n\n        </div>\n    </d
 ((__t = ( quote_2 )) == null ? '' : __t) +
 '</h4>\n\n                <h4 class="iapp-case-quote-source">' +
 ((__t = ( quote_2_source)) == null ? '' : __t) +
-'</h4>\n            </div>\n        </div>\n    </div>\n\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-argument iapp-case-split-column">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>\n                <h4 class="iapp-case-argument-text">' +
-((__t = ( argument_for )) == null ? '' : __t) +
-'</h4>\n            </div>\n\n\n        </div>\n\n        <div class="iapp-case-argument iapp-case-split-column right">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>\n                <h4 class="iapp-case-argument-text">' +
-((__t = ( argument_against )) == null ? '' : __t) +
 '</h4>\n            </div>\n        </div>\n    </div>\n\n    <div class="iapp-share-buttons">\n        <a href="https://twitter.com/intent/tweet?url=' +
 ((__t = (twitterShare)) == null ? '' : __t) +
 '&text=' +
