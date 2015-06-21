@@ -21,27 +21,6 @@
             </div>
         </div>
     </div>
-    <div class="iapp-row-wrapper">
-        <div class="iapp-case-full-column">
-            <h3 class="iapp-case-section-label">Decision Breakdown:</h3>
-            <% _.each(justices, function(justice, index) { %>
-            <% if(index % 3 == 0) { %>
-            <% if(index > 0) { %>
-            </tr>
-            </table>
-            <%}%>
-            <table class="table iapp-decision-table">
-                <tr>
-                    <%}%>
-                    <td class="iapp-undecided"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/<%=justice.name.substr(justice.name.lastIndexOf(" ") + 1, justice.name.length - justice.name.lastIndexOf(" ") + 1).toLowerCase() %>.jpg" width="100%"/>
-                        <%=justice.name %><br/>
-                    ?</td>
-                    <%})%>
-                </tr>
-            </table>
-
-        </div>
-    </div>
 
     <div class="iapp-row-wrapper">
         <div class="iapp-case-argument iapp-case-split-column">
@@ -81,15 +60,39 @@
         </div>
     </div>
 
-    <div class="iapp-share-buttons">
-        <a href="https://twitter.com/intent/tweet?url=<%=twitterShare%>&text=<%=encodedShare%>"
-           class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img
-                src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/emoji-index/img/twitter.svg"
-                alt="Twitter share"></a>
-        <a href="https://www.facebook.com/dialog/feed?display=popup&app_id=<%=fb_id%>&link=<%=fbShare%>&picture=<%=shareImage%>&name=&description=<%=encodedShare%>&redirect_uri=<%=fb_redirect%>"
-           class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img
-                src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/emoji-index/img/fb.svg"
-                alt="Facebook share"></a>
+    <div class="iapp-row-wrapper">
+        <div class="iapp-case-full-column">
+            <h3 class="iapp-case-section-label">Decision Breakdown:</h3>
+            <% _.each(justices, function(justice, index) { %>
+            <% if(index % 3 == 0) { %>
+            <% if(index > 0) { %>
+            </tr>
+            </table>
+            <%}%>
+            <table class="table iapp-decision-table">
+                <tr>
+                    <%}%>
+                    <td class="iapp-undecided"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/<%=justice.name.substr(justice.name.lastIndexOf(" ") + 1, justice.name.length - justice.name.lastIndexOf(" ") + 1).toLowerCase() %>.jpg" width="100%"/>
+                        <%=justice.name %><br/>
+                    ?</td>
+                    <%})%>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+    <div class="iapp-row-wrapper">
+        <div class="iapp-share-buttons">
+            <a href="https://twitter.com/intent/tweet?url=<%=twitterShare%>&text=<%=encodedShare%>"
+               class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img
+                    src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/twitter.svg"
+                    alt="Twitter share"></a>
+            <a href="https://www.facebook.com/dialog/feed?display=popup&app_id=<%=fb_id%>&link=<%=fbShare%>&picture=<%=shareImage%>&name=&description=<%=encodedShare%>&redirect_uri=<%=fb_redirect%>"
+               class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img
+                    src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/fb.svg"
+                    alt="Facebook share"></a>
+        </div>
     </div>
 
     <div class="iapp-case-nav">
