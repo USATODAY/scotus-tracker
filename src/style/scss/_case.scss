@@ -162,8 +162,8 @@ case decided indicator styles
   font-size: 1.0em;
   padding-right: 1em;
   margin-top: 1em;
-   float:left;
-  @media(min-width: 1195px) {
+
+  @media(min-width: 1195px){
   float: right;
   }
 
@@ -171,7 +171,7 @@ case decided indicator styles
   
 }
 article.vert .iapp-decided-indicator {
-  float: none;
+  float: left;
 }
 
 .label-warning {
@@ -180,7 +180,7 @@ article.vert .iapp-decided-indicator {
   left: 1px;
   position: relative;
   float:right;
-  @media(min-width: 830px) {
+  @media(max-width: 830px) {
   margin-right: 1em;
 
   }
@@ -194,14 +194,12 @@ article.vert .iapp-decided-indicator {
   float:right;
   @media(max-width: 830px) {
   margin-right: 1em;
-  margin-top: 1em;
   }
 }
 article.vert .label-warning, article.vert .label-success {
   margin-left: 0;
   width:100%;
-    margin-bottom: 1em;
-}
+   }
 
 /******
 case quote styles
