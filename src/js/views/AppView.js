@@ -66,7 +66,7 @@ define(
                 console.log(jQuery(".iapp-panel").scrollTop());
             },
             onSizeChange: function() {
-                if (window.innerWidth > window.innerHeight) {
+                if (window.innerWidth > 830) {
                     jQuery("article").removeClass("vert");
                 } else {
                     jQuery("article").addClass("vert");
