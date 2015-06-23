@@ -32,3 +32,9 @@ article {
     height: 100%;
     position: relative;
 }
+#overlay {
+  height: calc(100% - 40px) !important;
+}
+.transition-wrap {
+  height: 100%;
+}
