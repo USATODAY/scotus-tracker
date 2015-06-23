@@ -26,14 +26,14 @@ article.vert .iapp-case-panel {
   color: $dark-grey;
   font-family: $FUTURA-LIGHT;
   font-size: 1.2em;
-  margin-bottom: 0;
+  margin-bottom: 1em;
 }
 
 .iapp-outcome {
   color: $dark-grey;
   font-family: $FUTURA-LIGHT;
   font-size: 1.2em;
-  margin-bottom: 0;
+  margin-bottom: 1em;
 }
 
 /******
@@ -84,7 +84,7 @@ table.iapp-decision-table {
   border-spacing: 0.2em 0;
   float: left;
   font-family: $FUTURA-LIGHT;
-  margin-bottom: 0;
+  margin-bottom: 1em;
   text-align: center;
   width: 33.33333333333333%;
 }
@@ -93,8 +93,8 @@ article.vert table.iapp-decision-table {
   width: 100%;
 }
 table.iapp-decision-table td {
-  height: 11em;
-  padding: 0 !important;
+  height: 10em;
+  padding: 0 0 1em 0 !important;
   width: 33.33333333333333%;
 }
 td.iapp-for {
@@ -200,14 +200,24 @@ case quote styles
   color: $dark-grey;
   font-family: $FUTURA-LIGHT;
   font-size: 1.2em;
-  margin-bottom: 0;
+  margin-bottom: 1em;
 }
 .iapp-case-quote-source {
   margin-top: 1em;
+  font-weight: bold;
 }
 .iapp-undecided {
   background: $medium-grey;
 }
+
+table.iapp-decision-table td img{
+  padding-bottom: 10px !important;
+}
+
+table.iapp-decision-table td span{
+  font-weight:bold;
+}
+
 .iapp-case-wrap {
   height: 100%;
   overflow-y: auto;
