@@ -31,7 +31,7 @@ __p += '<div class="iapp-case-wrap">\n    <div class="small-head center">Supreme
 ((__t = (question)) == null ? '' : __t) +
 '</h4>\n            </div>\n        </div>\n        <div class="iapp-case-split-column right">\n            <div class="iapp-case-section">\n                <h3 class="iapp-case-section-label">Outcome</h3>\n                <h4 class="iapp-outcome">' +
 ((__t = (outcome)) == null ? '' : __t) +
-'</h4>\n            </div>\n        </div>\n    </div>\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-full-column">\n            <h3 class="iapp-case-section-label">Decision Breakdown:</h3>\n            ';
+'</h4>\n            </div>\n        </div>\n    </div>\n    <div class="iapp-row-wrapper">\n        <div class="iapp-case-full-column">\n            <h3 class="iapp-case-section-label">Decision Breakdown</h3>\n            ';
  _.each(justices, function(justice, index) { ;
 __p += '\n            ';
  if(index % 3 == 0) { ;
