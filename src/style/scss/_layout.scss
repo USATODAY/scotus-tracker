@@ -22,7 +22,9 @@
 
 .iapp-wrap {
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
     width: 100%;
 }
 

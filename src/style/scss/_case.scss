@@ -7,12 +7,11 @@ case styles
 .iapp-case-panel {
   /*background: white;*/
   font-family: $FUTURA-NORMAL;
-  overflow-y: auto;
-  padding: 4em 6em;
+  position: absolute;
 }
 
 article.vert .iapp-case-panel {
-  padding: 3em 4em;
+  padding: 1em 4em 0em 4em;
 }
 
 .iapp-case-name {
@@ -119,13 +118,13 @@ case nav styles
 
 .iapp-case-next-button {
   position: fixed;
-  right: 0;
+  right: 1.15%;
   top: 50%;
   transform: translate(0, -50%);
 }
 
 .iapp-case-previous-button {
-  left: 0;
+  left: 1.15%;
   position: fixed;
   top: 50%;
   transform: translate(0, -50%);
@@ -208,4 +207,12 @@ case quote styles
 }
 .iapp-undecided {
   background: $medium-grey;
+}
+.iapp-case-wrap {
+  height: 100%;
+  overflow-y: auto;
+  padding: 4em 6em;
+}
+article.vert .iapp-case-wrap {
+  padding: 0 0;
 }
