@@ -1,10 +1,10 @@
 <div class="iapp-case-wrap">
-    <div class="small-head center">Scotus decision tracker</div>
+    <div class="small-head center">Supreme Court Decision Tracker</div>
     <div class="case-bar-wrap">
         <h2 class="iapp-case-name"><%=case_title%> </h2>
 
         <p class="iapp-decided-indicator"><%=case_name %> <span
-                class="label label-warning">(Undecided) Argued: <%=case_date%></span>
+                class="label label-warning">Argued: <%=case_date%> (Undecided)</span>
         </p>
     </div>
     <div class="iapp-row-wrapper">
@@ -16,46 +16,8 @@
         </div>
         <div class="iapp-case-split-column right">
             <div class="iapp-case-section">
-                <h3 class="iapp-case-section-label">Projected Outcome</h3>
+                <h3 class="iapp-case-section-label">Possible Outcome</h3>
                 <h4 class="iapp-outcome"><%=outcome%></h4>
-            </div>
-        </div>
-    </div>
-
-    <div class="iapp-row-wrapper">
-        <div class="iapp-case-argument iapp-case-split-column">
-            <div class="iapp-case-section">
-                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>
-                <h4 class="iapp-case-argument-text"><%= argument_for %></h4>
-            </div>
-
-
-        </div>
-
-        <div class="iapp-case-argument iapp-case-split-column right">
-            <div class="iapp-case-section">
-                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>
-                <h4 class="iapp-case-argument-text"><%= argument_against %></h4>
-            </div>
-        </div>
-    </div>
-    <div class="iapp-row-wrapper">
-        <div class="iapp-case-split-column">
-            <div class="iapp-case-section">
-                <h3 class="iapp-case-section-label">Quote For</h3>
-
-                <h4 class="iapp-case-quote"><%= quote_1 %></h4>
-
-                <h4 class="iapp-case-quote-source"><%= quote_1_source%></h4>
-            </div>
-        </div>
-        <div class="iapp-case-split-column right">
-            <div class="iapp-case-section">
-                <h3 class="iapp-case-section-label">Quote Against</h3>
-
-                <h4 class="iapp-case-quote"><%= quote_2 %></h4>
-
-                <h4 class="iapp-case-quote-source"><%= quote_2_source%></h4>
             </div>
         </div>
     </div>
@@ -73,14 +35,55 @@
                 <tr>
                     <%}%>
                     <td class="iapp-undecided"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/<%=justice.name.substr(justice.name.lastIndexOf(" ") + 1, justice.name.length - justice.name.lastIndexOf(" ") + 1).toLowerCase() %>.jpg" width="100%"/>
-                        <%=justice.name %><br/>
-                    ?</td>
+                        <%=justice.first_name%><br/><%=justice.last_name%><br/>
+                    </td>
                     <%})%>
                 </tr>
             </table>
 
         </div>
     </div>
+
+    <div class="iapp-row-wrapper">
+        <div class="iapp-case-split-column">
+            <div class="iapp-case-section">
+                <h3 class="iapp-case-section-label">Oral Argument</h3>
+
+                <h4 class="iapp-case-quote"><%= quote_1 %></h4>
+
+                <h4 class="iapp-case-quote-source"><%= quote_1_source%></h4>
+            </div>
+        </div>
+        <div class="iapp-case-split-column right">
+            <div class="iapp-case-section">
+                <h3 class="iapp-case-section-label">Oral Argument</h3>
+
+                <h4 class="iapp-case-quote"><%= quote_2 %></h4>
+
+                <h4 class="iapp-case-quote-source"><%= quote_2_source%></h4>
+            </div>
+        </div>
+    </div>
+    <div class="iapp-row-wrapper">
+        <div class="iapp-case-argument iapp-case-split-column">
+            <div class="iapp-case-section">
+                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument For</h3>
+                <h4 class="iapp-case-argument-text"><%= argument_for %></h4>
+            </div>
+
+
+        </div>
+
+        <div class="iapp-case-argument iapp-case-split-column right">
+            <div class="iapp-case-section">
+                <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>
+                <h4 class="iapp-case-argument-text"><%= argument_against %></h4>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <div class="iapp-row-wrapper">
         <div class="iapp-share-buttons">

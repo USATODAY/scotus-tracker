@@ -1,5 +1,5 @@
 <div class="iapp-case-wrap">
-    <div class="small-head center">Scotus decision tracker</div>
+    <div class="small-head center">Supreme Court Decision Tracker</div>
     <div class="case-bar-wrap">
         <h2 class="iapp-case-name"><%=case_title%> </h2>
 
@@ -35,13 +35,13 @@
                     <%}%>
                     <% if(justice.status == "for") { %>
                     <td class="iapp-for"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/<%=justice.name.substr(justice.name.lastIndexOf(" ") + 1, justice.name.length - justice.name.lastIndexOf(" ") + 1).toLowerCase() %>.jpg" width="100%"/>
-                        <%=justice.name %><br/>MAJORITY</td>
+                        <%=justice.first_name%><br/><%=justice.last_name%><br/><br/><span class="vote">MAJORITY</span></td>
                     <%} else if(justice.status == "in-part") { %>
                     <td class="iapp-in-part"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/<%=justice.name.substr(justice.name.lastIndexOf(" ") + 1, justice.name.length - justice.name.lastIndexOf(" ") + 1).toLowerCase() %>.jpg" width="100%"/>
-                        <%=justice.name %><br/>CONCUR IN PART</td>
+                        <%=justice.first_name%><br/><%=justice.last_name%><br/><br/><span class="vote">CONCUR</span></td>
                     <%} else if(justice.status == "against") { %>
                     <td class="iapp-against"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/img/<%=justice.name.substr(justice.name.lastIndexOf(" ") + 1, justice.name.length - justice.name.lastIndexOf(" ") + 1).toLowerCase() %>.jpg" width="100%"/>
-                        <%=justice.name %><br/>DISSENT</td>
+                        <%=justice.first_name%><br/><%=justice.last_name%><br/><br/><span class="vote">DISSENT</span></td>
                     <%}%>
 
                     <%})%>
@@ -50,6 +50,27 @@
 
         </div>
     </div>
+        <div class="iapp-row-wrapper">
+        <div class="iapp-case-split-column">
+            <div class="iapp-case-section">
+                <h3 class="iapp-case-section-label">Opinion</h3>
+
+                <h4 class="iapp-case-quote"><%= quote_1 %></h4>
+
+                <h4 class="iapp-case-quote-source"><%= quote_1_source%></h4>
+            </div>
+        </div>
+        <div class="iapp-case-split-column right">
+            <div class="iapp-case-section">
+                <h3 class="iapp-case-section-label">Dissent</h3>
+
+                <h4 class="iapp-case-quote"><%= quote_2 %></h4>
+
+                <h4 class="iapp-case-quote-source"><%= quote_2_source%></h4>
+            </div>
+        </div>
+    </div>
+
     <div class="iapp-row-wrapper">
         <div class="iapp-case-argument iapp-case-split-column">
             <div class="iapp-case-section">
@@ -64,26 +85,6 @@
             <div class="iapp-case-section">
                 <h3 class="iapp-case-argument-title iapp-case-section-label">Argument Against</h3>
                 <h4 class="iapp-case-argument-text"><%= argument_against %></h4>
-            </div>
-        </div>
-    </div>
-    <div class="iapp-row-wrapper">
-        <div class="iapp-case-split-column">
-            <div class="iapp-case-section">
-                <h3 class="iapp-case-section-label">Quote from Majority</h3>
-
-                <h4 class="iapp-case-quote"><%= quote_1 %></h4>
-
-                <h4 class="iapp-case-quote-source"><%= quote_1_source%></h4>
-            </div>
-        </div>
-        <div class="iapp-case-split-column right">
-            <div class="iapp-case-section">
-                <h3 class="iapp-case-section-label">Quote from dissent</h3>
-
-                <h4 class="iapp-case-quote"><%= quote_2 %></h4>
-
-                <h4 class="iapp-case-quote-source"><%= quote_2_source%></h4>
             </div>
         </div>
     </div>
