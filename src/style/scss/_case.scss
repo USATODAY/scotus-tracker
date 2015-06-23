@@ -15,25 +15,29 @@ article.vert .iapp-case-panel {
 }
 
 .iapp-case-name {
-  display: inline;
-  font-family: $FUTURA-LIGHT;
+  display: inline-block;
+  font-family: $FUTURA-BOLD;
   font-size: 1.7em;
   text-transform: uppercase;
+  /*position: relative;*/
+  /*top: .5em;*/
 
 }
 
 .iapp-case-question {
-  color: $dark-grey;
+  color: $light-grey;
   font-family: $FUTURA-LIGHT;
   font-size: 1.2em;
   margin-bottom: 1em;
+  padding: 0 1em 0 .5em;
 }
 
 .iapp-outcome {
-  color: $dark-grey;
+  color: $light-grey;
   font-family: $FUTURA-LIGHT;
   font-size: 1.2em;
   margin-bottom: 1em;
+  padding: 0 1em 0 .5em;
 }
 
 /******
@@ -45,6 +49,7 @@ case section styles
   font-family: $FUTURA-LIGHT;
   font-size: 1.4em;
   margin-top: 0;
+  margin-right: .6em;
   overflow: hidden;
   padding: 0.2em 0 0.3em 0.5em;
   text-transform: uppercase;
@@ -152,7 +157,7 @@ case decided indicator styles
   float: right;
   font-size: 1.0em;
   position: relative;
-  top: 3px;
+  top: 1em;
 }
 article.vert .iapp-decided-indicator {
   float: none;
@@ -163,6 +168,10 @@ article.vert .iapp-decided-indicator {
   margin-left: 1em;
   left: 1px;
   position: relative;
+  float:right;
+  @media(max-width: 820px) {
+  margin-right: 1em;
+  }
 }
 
 .label-success {
@@ -170,9 +179,14 @@ article.vert .iapp-decided-indicator {
   left: 1px;
   margin-left: 1em;
   position: relative;
+  float:right;
+  @media(max-width: 820px) {
+  margin-right: 1em;
+  }
 }
 article.vert .label-warning, article.vert .label-success {
   margin-left: 0;
+  width:100%;
 }
 
 /******
@@ -184,10 +198,10 @@ case quote styles
   // width: 50%;
 }
 .case-bar-wrap {
-  background: rgba(33, 63, 153, 0.93);
-  margin-top: 1em;
+  /*background: rgba(33, 63, 153, 0.93);*/
+  /*margin-top: 1em;*/
   overflow: hidden;
-  padding: 0.5em 0 0.2em 0.7em;
+  /*padding: 0.5em 0 0.2em 0.7em;*/
 }
 .iapp-row-wrapper {
   background: rgba(255,255,255,0.75);
@@ -196,6 +210,21 @@ case quote styles
   padding: 0.9em;
   width: 100%;
 }
+.iapp-top-row-wrapper {
+  background: rgba(33,63,153,0.93);
+  float: left;
+  margin-top: 1em;
+  padding: 0 .0 .9em .9em;
+  width: 100%;
+}
+
+.iapp-top-row-wrapper .iapp-case-section-label {
+  margin-top: 1em;
+  background-color: transparentize($light-grey, 0.9);
+
+
+ }
+
 .iapp-case-quote, .iapp-case-quote-source, .iapp-case-argument-text {
   color: $dark-grey;
   font-family: $FUTURA-LIGHT;
