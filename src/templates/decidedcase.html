@@ -1,13 +1,13 @@
 <div class="iapp-case-wrap">
     <div class="small-head center">Supreme Court Decision Tracker</div>
-    <div class="case-bar-wrap">
-        <h2 class="iapp-case-name"><%=case_title%> </h2>
 
-        <p class="iapp-decided-indicator"><%=case_name %> <span
-                class="label label-success">Decided: <%=case_date%></span>
+    <div class="iapp-top-row-wrapper">
+            <div class="case-bar-wrap">
+        <h2 class="iapp-case-name"><%=case_title%> </h2>
+        <span class="label label-success">Decided: <%=case_date%></span>
+        <p class="iapp-decided-indicator"><%=case_name %> 
         </p>
     </div>
-    <div class="iapp-row-wrapper">
         <div class="iapp-case-split-column">
             <div class="iapp-case-section">
                 <h3 class="iapp-case-section-label">Question</h3>
@@ -23,7 +23,7 @@
     </div>
     <div class="iapp-row-wrapper">
         <div class="iapp-case-full-column">
-            <h3 class="iapp-case-section-label">Decision Breakdown:</h3>
+            <h3 class="iapp-case-section-label">Decision Breakdown</h3>
             <% _.each(justices, function(justice, index) { %>
             <% if(index % 3 == 0) { %>
             <% if(index > 0) { %>
