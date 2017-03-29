@@ -16,7 +16,7 @@ define(
     } else {
 
 
-        dataURL = "http://" + hostname + "/services/webproxy/?url=http://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/data/data.json";
+        dataURL = "http://" + hostname + "/services/webproxy/?url=https://www.gannett-cdn.com/experiments/usatoday/2015/06/scotus-tracker/data/data.json";
 
     }
 
